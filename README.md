@@ -41,6 +41,6 @@ rm -rf build
 
 ## Dependecy libraries
 ```
-sudo apt-get install qtcreator
+sudo apt install qtbase5-dev
 sudo apt-get install cmake
 ```

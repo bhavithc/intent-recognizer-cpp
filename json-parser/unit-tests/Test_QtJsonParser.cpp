@@ -12,5 +12,12 @@ TEST_F(JsonParserTest, JsonParserTestObj)
 {   
     JsonData jsonData;
     auto pJsonParser = JsonParserFactory::getInstance();
-    EXPECT_THROW(pJsonParser->parseJson("dummyPath", jsonData), JsonParseException);
+    pJsonParser->parseJson("/home/bhavith/Bhavith/Development/intent-recognizer-cpp/data/sample.json", jsonData);
+
+    for (const auto& intent : jsonData) {
+        std::cout << intent.first << "\n";
+        for (const auto& value : intent.second) {
+            std::cout << " - " << value << "\n";
+        }
+    }
 }

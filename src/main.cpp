@@ -1,7 +1,11 @@
 #include <iostream>
+#include "IntentRecognizer.h"
 
 int main(int argc, char** pArgv)
 {
-    std::cout << "Initial version of the intent recognition! \n";
+    std::string intent;
+    IntentRecognizer ir;
+    ir.recognizeIntent("What is the weather like today?", intent);
+    std::cout << "Intent is : " << intent << "\n";
     return 0;
 }
