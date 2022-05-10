@@ -1,0 +1,3 @@
+add_executable(QtJsonParserTest Test_QtJsonParser.cpp)
+target_link_libraries(QtJsonParserTest JsonParser gtest gtest_main)
+add_test(QtJsonParserTest QtJsonParserTest)
