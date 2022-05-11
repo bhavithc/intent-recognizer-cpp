@@ -8,7 +8,7 @@ add_definitions(${Qt5Core_DEFINITIONS})
 
 enable_testing()
 include_directories(inc)
-add_subdirectory(json-parser)
+add_subdirectory(libs/json-parser)
 add_subdirectory(src)
 
 install(FILES 

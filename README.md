@@ -117,6 +117,10 @@ cmake --build build --target test
 ```
 cmake --build build --target install
 ```
+sudo is required in case permission not present
+```
+sudo cmake --build build --target install
+```
 
 ### clean
 ```
