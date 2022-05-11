@@ -1,5 +1,7 @@
 #include <iostream>
 #include <sstream>
+#include <string.h>
+
 #include "IntentRecognizer.h"
 
 #define MAX_WORDS_SUPPORTED 10
@@ -7,9 +9,9 @@
 void printHelp()
 {
     std::stringstream ss;
-    ss << "Usage:\n";
-    ss << "\tIntentRecognizer <your message here>\n";
-    ss << "\t@remark: message should not exceed " << MAX_WORDS_SUPPORTED << " word(s)";
+    ss << "Usage: IntentRecognizer [--help | -h] <your message here>\n";
+    ss << "       @remark: message should not exceed " 
+        << MAX_WORDS_SUPPORTED << " word(s)";
     std::cout << ss.str() << "\n";
 }
 
@@ -28,6 +30,12 @@ int main(int argc, char** pArgv)
         std::cerr << "Message has more than " << MAX_WORDS_SUPPORTED << " words \n";
         printHelp();
         return -1;
+    }
+
+    if ((strncasecmp(pArgv[1], "--help", sizeof("--help")) == 0) || 
+        (strncasecmp(pArgv[1], "-h", sizeof("-h")) == 0)) {
+        printHelp();
+        return 0;
     }
 
     for (auto i = 1; i < argc; i++) {
