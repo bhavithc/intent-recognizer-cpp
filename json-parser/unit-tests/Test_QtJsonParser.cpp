@@ -12,7 +12,7 @@ TEST_F(JsonParserTest, JsonParserTestObj)
 {   
     JsonData jsonData;
     auto pJsonParser = JsonParserFactory::getInstance();
-    pJsonParser->parseJson("/home/bhavith/Bhavith/Development/intent-recognizer-cpp/data/sample.json", jsonData);
+    pJsonParser->parseJson("/etc/database.json", jsonData);
 
     for (const auto& intent : jsonData) {
         std::cout << intent.first << "\n";

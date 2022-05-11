@@ -8,6 +8,7 @@
 
 #define MAX_SUPPORTED_SENTENCE_LENGTH 100
 #define INVALID_INTENT "Please try different sentence"
+#define DATABASE_FILE "/etc/database.json"
 
 class IntentRecognizer::Impl
 {
@@ -41,7 +42,8 @@ public:
         } else {
             for (const auto& i : intents) {
                 intent += " ";
-                intent += i.first;
+                auto smallCase = i.first;
+                intent += strToLower(smallCase);
             }
 
             status = true;
@@ -54,7 +56,7 @@ public:
     void loadJsonData()
     {
         auto pJsonParser = JsonParserFactory::getInstance();
-        pJsonParser->parseJson("/home/bhavith/Bhavith/Development/intent-recognizer-cpp/data/sample.json", m_jsonData);
+        pJsonParser->parseJson(DATABASE_FILE, m_jsonData);
     }
 
 private:

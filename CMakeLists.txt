@@ -10,3 +10,8 @@ enable_testing()
 include_directories(inc)
 add_subdirectory(json-parser)
 add_subdirectory(src)
+
+install(FILES 
+        ${CMAKE_SOURCE_DIR}/data/database.json 
+        DESTINATION /etc/ 
+        PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ WORLD_WRITE)
