@@ -133,3 +133,66 @@ sudo apt install qtbase5-dev
 sudo apt-get install cmake
 sudo apt install liblog4cplus-dev
 ```
+
+
+### Testing
+
+@startuml
+
+
+
+
+
+/' Objects '/
+
+abstract class IJsonParser {
+	+{abstract} parseJson(const std::string& jsonFilePath, JsonData& jsonData) : auto
+}
+
+
+class IntentRecognizer {
+	+IntentRecognizer()
+	+~IntentRecognizer()
+	+recognizeIntent(const std::string& sentence, std::string& intent) : auto
+	-m_pImpl : std::unique_ptr<Impl>
+}
+
+
+class JsonParseException {
+	+JsonParseException(const std::string& reason)
+	+~JsonParseException()
+	+what() : char*
+	-m_reason : std::string
+}
+
+
+class JsonParserFactory {
+	+{static} getInstance() : auto
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+
+
+
+
+/' Dependency relationships '/
+
+
+
+
+
+/' Nested objects '/
+
+
+
+@enduml
