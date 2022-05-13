@@ -1,11 +1,49 @@
 # intent-recognizer-cpp
-Intent recognizer command line tool, The input and output looks like this:
+Intent recognizer is a command line tool which produces the intent of the given sentence via command line.
+
+Some of the examples are given below
 
 ```
 What is the weather like today? => Prints (Intent: Get Weather)
 What is the weather like in Paris today? => Prints (Intent: Get Weather City)
 Tell me an interesting fact. => Prints (Intent: Get Fact)
 ```
+
+# Design 
+
+## High level design 
+
+### Use case 
+
+![HLD](./imgs/hdl.png)
+
+- User intreacts with the Intent recognizer via command line tool
+- Intent recognizer should read the user input and respond with the proper intent and also should print proper error message incase given input is not correct
+- Input should be validated before its been processed
+- Input length is limited to 10 words for the sake of simplicity and security reasons
+- Intent recognizer should handle multiple use cases with out modifying the source and should to be extendable
+- There should be loose couple with any third party libraries if used, and should be easily replacable with other library with minimal efforts
+  
+
+### Setup
+
+![intent-recognizer](imgs/intent_recognizer.png)
+
+- Intent recognizer is an executable and which depends on two libraries for parsing the json and recognizing the intent of the given input
+- Both libaries should be made a static libraries since intent recognizer does only one job of recognizing intent and also to make life simpler
+- database.json contains the data used for recognizing the intent of the given sentence
+
+## Low level design
+
+### JSON parser 
+- Json parser is a library which is used to parse the JSON file 
+
+*Design pattern used:*
+- Adapter design pattern pattern should be used since we are using the thrid part library. Later it should be possible to migrate to other 3rdparty library
+- Factory design pattern is used to select the adapter.
+
+### Intent recognizer
+- Intent recognizer is a library which does the core job of recognizing the intent of the given input
 
 # Usage
 This is a command line tool, So user has to provide his request via command line
