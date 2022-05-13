@@ -35,15 +35,39 @@ Tell me an interesting fact. => Prints (Intent: Get Fact)
 
 ## Low level design
 
-### JSON parser 
+### Library: JSON parser
 - Json parser is a library which is used to parse the JSON file 
 
 *Design pattern used:*
 - Adapter design pattern pattern should be used since we are using the thrid part library. Later it should be possible to migrate to other 3rdparty library
 - Factory design pattern is used to select the adapter.
 
-### Intent recognizer
+### Library: Intent recognizer
 - Intent recognizer is a library which does the core job of recognizing the intent of the given input
+
+### Executable: Intent Recognizer
+- IntentRecognizer is a binary which validates the input from the user and uses Intent Recognizer library to recognize the intent of the given input
+
+### JSON: database.json
+- database.json contains the intent and the corresponding (related) words. Which can be configured by user to make his own intents
+```json
+{
+    "data": {
+        "City": [
+            "Paris",
+            "France",
+            "India",
+            "Germany"
+        ],
+        "Weather": [
+            "Weather"
+        ],
+        "Fact": [
+            "Fact"
+        ]
+    }
+}
+```
 
 # Usage
 This is a command line tool, So user has to provide his request via command line
