@@ -1,4 +1,11 @@
-
+/**
+ * @file QtJsonParser.cpp
+ * @author Bhavith C (bhavithc.acharya@gmail.com)
+ * @brief Json parser implementation using QT library
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "QtJsonParser.h"
 
 #include <sstream>

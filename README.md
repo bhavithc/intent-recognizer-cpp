@@ -131,4 +131,5 @@ rm -rf build
 ```
 sudo apt install qtbase5-dev
 sudo apt-get install cmake
+sudo apt install liblog4cplus-dev
 ```
