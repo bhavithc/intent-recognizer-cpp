@@ -24,7 +24,10 @@ jobs:
       run: sudo apt install -y qtbase5-dev
     
     - name: Install log4cplus
-      run: sudo apt install liblog4cplus-dev
+      run: sudo apt install -y liblog4cplus-dev
+      
+    - name: Install gtest
+      run: sudo apt install -y libgtest-dev
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
