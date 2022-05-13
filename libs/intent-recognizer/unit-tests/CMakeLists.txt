@@ -1,0 +1,3 @@
+add_executable(IntentTest Test_IntentRecognizer.cpp)
+target_link_libraries(IntentTest IntentRecognizer gtest gtest_main log4cplus)
+add_test(IntentTest IntentTest)

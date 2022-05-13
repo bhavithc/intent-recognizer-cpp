@@ -40,6 +40,7 @@ public:
         if (sentence.length() == 0 ||
             sentence.length() > MAX_SUPPORTED_SENTENCE_LENGTH) {
             LOG_ERROR("Invalid sentence length received, unable to get intent");
+            intent = "Sentence has too many characters";
             return status;
         }
 
@@ -60,9 +61,7 @@ public:
         } else {
             for (const auto& i : intents) {
                 intent += " ";
-                auto word = i.first;
-                strToLower(word);
-                intent += word;
+                intent += i.first;
             }
             status = true;
         }
